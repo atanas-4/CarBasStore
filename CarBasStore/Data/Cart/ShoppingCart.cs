@@ -32,9 +32,9 @@ namespace CarBasStore.Data.Cart
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
-        public void AddItemToCart(CarProduct movie)
+        public void AddItemToCart(CarProduct carproduct)
         {
-            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.CarProduct.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.CarProduct.Id == carproduct.Id && n.ShoppingCartId == ShoppingCartId);
 
             if(shoppingCartItem == null)
             {
@@ -53,9 +53,9 @@ namespace CarBasStore.Data.Cart
             _context.SaveChanges();
         }
 
-        public void RemoveItemFromCart(CarProduct movie)
+        public void RemoveItemFromCart(CarProduct carproduct)
         {
-            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.CarProduct.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.CarProduct.Id == carproduct.Id && n.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem != null)
             {

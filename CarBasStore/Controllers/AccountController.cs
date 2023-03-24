@@ -93,7 +93,7 @@ namespace CarBasStore.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Movies");
+            return RedirectToAction("Index", "CarProduct");
         }
 
         public IActionResult AccessDenied(string ReturnUrl)

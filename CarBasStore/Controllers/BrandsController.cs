@@ -29,7 +29,7 @@ namespace CarBasStore.Controllers
             return View(allBrand);
         }
 
-        //GET: producers/details/1
+
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
@@ -38,7 +38,6 @@ namespace CarBasStore.Controllers
             return View(BrandDetails);
         }
 
-        //GET: producers/create
         public IActionResult Create()
         {
             return View();
@@ -53,7 +52,6 @@ namespace CarBasStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET: producers/edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var BrandDetails = await _service.GetByIdAsync(id);
@@ -74,7 +72,7 @@ namespace CarBasStore.Controllers
             return View(producer);
         }
 
-        //GET: producers/delete/1
+
         public async Task<IActionResult> Delete(int id)
         {
             var brandDetails = await _service.GetByIdAsync(id);

@@ -20,44 +20,7 @@ namespace CarBasStore.Data
 
 
 
-                //Cinema
-                //if (!context.Cinemas.Any())
-                //{
-                //    context.Cinemas.AddRange(new List<Cinema>()
-                //    {
-                //        new Cinema()
-                //        {
-                //            Name = "Cinema 1",             //           
-                //            Description = "This is the description of the first cinema"
-                //        },
-                //        new Cinema()
-                //        {
-                //            Name = "Cinema 2",
-
-                //            Description = "This is the description of the first cinema"
-                //        },
-                //        new Cinema()
-                //        {
-                //            Name = "Cinema 3",
-
-                //            Description = "This is the description of the first cinema"
-                //        },
-                //        new Cinema()
-                //        {
-                //            Name = "Cinema 4",
-
-                //            Description = "This is the description of the first cinema"
-                //        },
-                //        new Cinema()
-                //        {
-                //            Name = "Cinema 5",
-
-                //            Description = "This is the description of the first cinema"
-                //        },
-                //    });
-                //    context.SaveChanges();
-                //}
-                ////Actors
+                
 
                 if (!context.Brands.Any())
                 {
@@ -65,39 +28,39 @@ namespace CarBasStore.Data
                     {
                         new Brand()
                         {
-                            FullName = "Producer 1",
-                            Bio = "This is the Bio of the first actor",
+                            FullName = "Brands 1",
+                            Bio = "This is the Bio of the first Brands",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-1.jpeg"
 
                         },
                         new Brand()
                         {
-                            FullName = "Producer 2",
-                            Bio = "This is the Bio of the second actor",
+                            FullName = "Brands 2",
+                            Bio = "This is the Bio of the second Brands",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-2.jpeg"
                         },
                         new Brand()
                         {
-                            FullName = "Producer 3",
-                            Bio = "This is the Bio of the second actor",
+                            FullName = "Brands 3",
+                            Bio = "This is the Bio of the second Brands",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-3.jpeg"
                         },
                         new Brand()
                         {
-                            FullName = "Producer 4",
-                            Bio = "This is the Bio of the second actor",
+                            FullName = "Brands 4",
+                            Bio = "This is the Bio of the second Brands",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-4.jpeg"
                         },
                         new Brand()
                         {
-                            FullName = "Producer 5",
-                            Bio = "This is the Bio of the second actor",
+                            FullName = "Brands 5",
+                            Bio = "This is the Bio of the second Brands",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-5.jpeg"
                         }
                     });
                     context.SaveChanges();
                 }
-                //Movies
+                
                 if (!context.CarProducts.Any())
                 {
                     context.CarProducts.AddRange(new List<CarProduct>()
@@ -105,7 +68,7 @@ namespace CarBasStore.Data
                         new CarProduct()
                         {
                             Name = "Life",
-                            Description = "This is the Life movie description",
+                            Description = "This is the Life CarProducts description",
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
                              CarProductCategory = CarProductCategory.Documentary
@@ -113,7 +76,7 @@ namespace CarBasStore.Data
                         new CarProduct()
                         {
                             Name = "The Shawshank Redemption",
-                            Description = "This is the Shawshank Redemption description",
+                            Description = "This is the CarProducts Redemption description",
                             Price = 29.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-1.jpeg",
                              CarProductCategory = CarProductCategory.Documentary
@@ -259,55 +222,55 @@ namespace CarBasStore.Data
 
         }
 
-        //    public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
-        //    {
-        //        using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
-        //        {
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
 
-        //            //Roles
-        //            var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-        //            if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
-        //                await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
-        //            if (!await roleManager.RoleExistsAsync(UserRoles.User))
-        //                await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
-        //            //Users
-        //            var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-        //            string adminUserEmail = "admin@etickets.com";
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                string adminUserEmail = "admin@etickets.com";
 
-        //            var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
-        //            if(adminUser == null)
-        //            {
-        //                var newAdminUser = new ApplicationUser()
-        //                {
-        //                    FullName = "Admin User",
-        //                    UserName = "admin-user",
-        //                    Email = adminUserEmail,
-        //                    EmailConfirmed = true
-        //                };
-        //                await userManager.CreateAsync(newAdminUser, "Coding@1234?");
-        //                await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
-        //            }
+                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Admin User",
+                        UserName = "admin-user",
+                        Email = adminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                }
 
 
-        //            string appUserEmail = "user@etickets.com";
+                string appUserEmail = "user@etickets.com";
 
-        //            var appUser = await userManager.FindByEmailAsync(appUserEmail);
-        //            if (appUser == null)
-        //            {
-        //                var newAppUser = new ApplicationUser()
-        //                {
-        //                    FullName = "Application User",
-        //                    UserName = "app-user",
-        //                    Email = appUserEmail,
-        //                    EmailConfirmed = true
-        //                };
-        //                await userManager.CreateAsync(newAppUser, "Coding@1234?");
-        //                await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
-        //            }
-        //        }
-        //    }
-        //}
+                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Application User",
+                        UserName = "app-user",
+                        Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+            }
+        }
+       }
     }
 }

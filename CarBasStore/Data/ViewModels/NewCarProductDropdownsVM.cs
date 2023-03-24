@@ -11,12 +11,10 @@ namespace CarBasStore.Data.ViewModels
         public NewCarProductDropdownsVM()
         {
             Brands = new List<Brand>();
-            //Cinemas = new List<Cinema>();
-            //Actors = new List<Actor>();
+
         }
 
         public List<Brand> Brands { get; set; }
-        //public List<Cinema> Cinemas { get; set; }
-        //public List<Actor> Actors { get; set; }
+
     }
 }
